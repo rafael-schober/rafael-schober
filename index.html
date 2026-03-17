@@ -896,6 +896,59 @@ nav {
   font-size: .75rem;
 }
 
+/* ── HAMBURGER MENU ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: .4rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--offwhite);
+  transition: all .25s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px; left: 0; right: 0;
+  background: rgba(20,28,50,0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 998;
+  padding: 1.5rem 6vw 2rem;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  font-family: var(--condensed);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s;
+}
+.nav-mobile-menu a:last-child { border-bottom: none; }
+.nav-mobile-menu a:hover, .nav-mobile-menu a.active { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+}
+
 /* ── PDF BUTTON ON PROJECT CARDS ── */
 .project-pdf-btn {
   display: inline-flex;
@@ -992,6 +1045,81 @@ footer {
 @media (max-width: 600px) {
   .skills-grid, .projects-grid { grid-template-columns: 1fr; }
   .hero-stats-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+
+  /* Nav */
+  nav { padding: 1rem 5vw; }
+  .nav-logo { font-size: 1.1rem; }
+
+  /* Hero */
+  .hero-left {
+    padding: 110px 6vw 60px 6vw;
+  }
+  .hero-name { font-size: clamp(3.2rem, 14vw, 5rem); }
+  .hero-title-tag { font-size: .9rem; letter-spacing: .15em; }
+  .hero-desc { font-size: .88rem; margin-top: 1.2rem; }
+  .hero-ctas { flex-direction: column; gap: .75rem; }
+  .btn-primary, .btn-ghost { text-align: center; padding: .9rem 1.5rem; font-size: .8rem; }
+  .hero-right { min-height: 220px; }
+  .km-number { font-size: clamp(4rem, 18vw, 7rem); }
+  .hero-stats-row {
+    bottom: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 .5rem;
+  }
+  .hero-stat { padding: .8rem .4rem; }
+  .hero-stat-val { font-size: 1.6rem; }
+  .hero-stat-lbl { font-size: .55rem; }
+
+  /* Photo Slider */
+  #photo-slider { height: 55vw; min-height: 200px; }
+
+  /* About */
+  #about { padding: 70px 6vw; }
+  .section-title { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .profile-block { font-size: .88rem; }
+  .highlight-content h4 { font-size: .95rem; }
+  .highlight-content p { font-size: .82rem; }
+
+  /* Skills */
+  #skills { padding: 70px 6vw; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-card { padding: 2rem 1.5rem; }
+  .skill-card h3 { font-size: .9rem; }
+
+  /* Experience */
+  #experience { padding: 70px 6vw; }
+  .exp-role { font-size: .95rem; }
+  .exp-date { font-size: .7rem; }
+  .exp-meta { flex-direction: column; gap: .2rem; align-items: flex-start; }
+  .exp-bullets li { font-size: .82rem; }
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Projects */
+  #projects { padding: 70px 6vw; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { padding: 2rem 1.5rem; }
+  .project-title { font-size: 1rem; }
+  .project-desc { font-size: .82rem; }
+
+  /* Interests */
+  #interests { padding: 70px 6vw; }
+  .interest-row { grid-template-columns: 1fr; gap: .5rem; }
+  .interest-badge { align-self: flex-start; }
+  .big-stat-val { font-size: 3.5rem; }
+  .big-stat-block { gap: 2rem; }
+
+  /* Contact */
+  #contact { padding: 70px 6vw; gap: 3rem; }
+  .contact-row { padding: 1rem; gap: 1rem; }
+  .contact-text-val { font-size: .82rem; word-break: break-all; }
+  .form-title { font-size: 2.2rem; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: .8rem; text-align: center; padding: 1.5rem 6vw; }
 }
 
 
@@ -1091,7 +1219,20 @@ footer {
     <li><a href="#interests">Interests</a></li>
     <li><a href="#contact">Kontakt</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">Profil</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#projects" class="mobile-link">Projekte</a>
+  <a href="#interests" class="mobile-link">Interests</a>
+  <a href="#contact" class="mobile-link">Kontakt</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1719,6 +1860,22 @@ footer {
 <script>
 
 document.addEventListener('DOMContentLoaded', function() {
+
+  // ── HAMBURGER MENU ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
   // ── SLIDER ──
   var sliderIndex = 0;
   var sliderTotal = 4;
