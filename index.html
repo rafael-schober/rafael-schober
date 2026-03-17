@@ -1054,28 +1054,57 @@ footer {
   nav { padding: 1rem 5vw; }
   .nav-logo { font-size: 1.1rem; }
 
-  /* Hero */
+  /* Hero — stack vertically, no overlap */
+  #hero { min-height: auto; display: flex; flex-direction: column; }
   .hero-left {
-    padding: 110px 6vw 60px 6vw;
+    padding: 100px 6vw 40px 6vw;
+    order: 1;
   }
   .hero-name { font-size: clamp(3.2rem, 14vw, 5rem); }
   .hero-title-tag { font-size: .9rem; letter-spacing: .15em; }
   .hero-desc { font-size: .88rem; margin-top: 1.2rem; }
   .hero-ctas { flex-direction: column; gap: .75rem; }
   .btn-primary, .btn-ghost { text-align: center; padding: .9rem 1.5rem; font-size: .8rem; }
-  .hero-right { min-height: 220px; }
-  .km-number { font-size: clamp(4rem, 18vw, 7rem); }
-  .hero-stats-row {
-    bottom: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 .5rem;
+
+  /* Hero right — fixed height, no absolute stats */
+  .hero-right {
+    order: 2;
+    min-height: 0;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
-  .hero-stat { padding: .8rem .4rem; }
+  .hero-right-bg { position: absolute; inset: 0; }
+  .hero-right-graphic {
+    position: relative;
+    inset: auto;
+    padding: 3rem 2rem 0;
+    z-index: 1;
+  }
+  .km-number { font-size: clamp(4rem, 20vw, 7rem); }
+
+  /* Stats — remove absolute positioning, flow naturally */
+  .hero-stats-row {
+    position: relative;
+    bottom: auto;
+    left: auto; right: auto;
+    padding: 1rem 1rem 0;
+    z-index: 1;
+    margin-top: 1.5rem;
+  }
+  .hero-stat { padding: 1rem .5rem; }
   .hero-stat-val { font-size: 1.6rem; }
   .hero-stat-lbl { font-size: .55rem; }
 
-  /* Photo Slider */
-  #photo-slider { height: 55vw; min-height: 200px; }
+  /* Slider images — show full image, no cropping */
+  #photo-slider { height: auto; min-height: 0; }
+  .slide img {
+    max-height: 70vw;
+    object-fit: contain;
+    width: 100%;
+  }
 
   /* About */
   #about { padding: 70px 6vw; }
