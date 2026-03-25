@@ -1495,6 +1495,77 @@ footer {
   .runbird-badge-team { font-size: 1.8rem; }
 }
 
+/* ── PANEL SWITCHER + STECKBRIEF — TABLET (≤ 768px) ── */
+@media (max-width: 768px) {
+  .panel-switcher-nav {
+    flex-wrap: wrap;
+    gap: .6rem;
+  }
+  .steckbrief-row {
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    padding: .8rem 1.5rem;
+  }
+  .steckbrief-header { padding: 1rem 1.5rem; }
+  .steckbrief-section-title { padding: .6rem 1.5rem; }
+  .steckbrief-quote { padding: 1.2rem 1.5rem; }
+  .highlight-item { padding: 1.5rem 0; }
+}
+
+/* ── PANEL SWITCHER + STECKBRIEF — MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+  /* Panel nav */
+  .panel-switcher { margin-top: 0; }
+  .panel-switcher-nav {
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: .8rem;
+  }
+  .panel-label-group { gap: .15rem; }
+  .panel-current-label { font-size: .62rem; }
+  .panel-hint { font-size: .55rem; }
+  .panel-arrow-btn { width: 30px; height: 30px; }
+
+  /* Steckbrief card — stack label above value */
+  .steckbrief-row {
+    grid-template-columns: 1fr;
+    gap: .15rem;
+    padding: .7rem 1.2rem;
+  }
+  .steckbrief-label {
+    font-size: .58rem;
+    letter-spacing: .2em;
+    color: var(--accent);
+    opacity: .75;
+  }
+  .steckbrief-value { font-size: .9rem; }
+  .steckbrief-header { padding: .9rem 1.2rem; }
+  .steckbrief-header-label { font-size: .58rem; }
+  .steckbrief-section-title { padding: .5rem 1.2rem; font-size: .55rem; }
+  .steckbrief-quote { padding: 1rem 1.2rem; font-size: .8rem; }
+  .steckbrief-badge { font-size: .6rem; padding: .12rem .45rem; }
+
+  /* Highlight items (Soft Skills slide) */
+  .highlight-item { padding: 1.2rem 0; gap: 1rem; }
+  .highlight-content h4 { font-size: .9rem; }
+  .highlight-content p { font-size: .82rem; }
+
+  /* Hero stats — smaller font on very small screens */
+  .hero-stats-row { grid-template-columns: repeat(3, 1fr); padding: 0 .5rem; }
+  .hero-stat-val { font-size: 1.4rem; }
+  .hero-stat-lbl { font-size: .5rem; letter-spacing: .08em; }
+
+  /* Skill cards */
+  .skills-header p { font-size: .88rem; }
+
+  /* Contact form */
+  .contact-form input,
+  .contact-form textarea { font-size: .88rem; padding: .8rem 1rem; }
+
+  /* Section headings — tighter */
+  #skills, #experience, #projects, #interests { padding: 60px 5vw; }
+}
+
 </style>
 </head>
 <body>
