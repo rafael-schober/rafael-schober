@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rafael Schober – Running Industry</title>
+<title>Rafael Schober | Sportmanager</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 
@@ -353,6 +353,219 @@ nav {
   font-size: .9rem;
   font-weight: 300;
   color: var(--muted);
+}
+
+/* ── STECKBRIEF ── */
+.steckbrief-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  overflow: hidden;
+}
+
+.steckbrief-header {
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,255,47,0.03);
+}
+
+.steckbrief-header-label {
+  font-family: var(--condensed);
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.steckbrief-section-title {
+  padding: .7rem 2rem;
+  font-family: var(--condensed);
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  margin-top: .5rem;
+}
+
+.steckbrief-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  padding: .9rem 2rem;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.steckbrief-row:last-child { border-bottom: none; }
+
+.steckbrief-label {
+  font-family: var(--condensed);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.steckbrief-value {
+  font-family: var(--condensed);
+  font-size: .95rem;
+  font-weight: 400;
+  letter-spacing: .03em;
+  color: var(--white);
+}
+
+.steckbrief-value .hi { color: var(--accent); font-family: var(--display); font-size: 1.15rem; line-height: 1; }
+
+.steckbrief-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+
+.steckbrief-badge {
+  font-family: var(--condensed);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(0,255,47,0.3);
+  padding: .15rem .55rem;
+}
+
+.steckbrief-quote {
+  padding: 1.4rem 2rem;
+  border-top: 1px solid var(--border);
+  font-size: .85rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.steckbrief-quote::before {
+  content: '"';
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 0;
+  vertical-align: -0.3em;
+  margin-right: .3rem;
+}
+
+/* ── PANEL SWITCHER ── */
+.panel-switcher {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-switcher-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.panel-current-label {
+  font-family: var(--condensed);
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  min-width: 110px;
+}
+
+.panel-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.panel-dots {
+  display: flex;
+  gap: .45rem;
+  align-items: center;
+}
+
+.panel-dot {
+  height: 4px;
+  width: 14px;
+  background: rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: background .25s, width .25s;
+  border: none;
+  padding: 0;
+}
+
+.panel-dot.active {
+  background: var(--accent);
+  width: 28px;
+}
+
+.panel-arrow-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, color .2s, background .2s;
+  flex-shrink: 0;
+}
+
+.panel-arrow-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,255,47,0.05);
+}
+
+.panel-arrow-btn svg { pointer-events: none; }
+
+.panel-slides-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.panel-slides {
+  display: flex;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
+  width: 100%;
+}
+
+.panel-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.panel-label-group {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.panel-hint {
+  font-family: var(--condensed);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: .55;
+  transition: opacity .2s;
+}
+
+.highlight-content p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* ── SKILLS ── */
@@ -1412,52 +1625,134 @@ footer {
       <p>
         Ich bin Rafael Schober – Sportmanager mit Fokus auf die Running-Branche.
         Was mich auszeichnet, ist Authentizität, Ehrlichkeit und Ausgeglichenheit: Ich möchte nichts anpreisen, was ich nicht wirklich vertreten kann.
-        Im spezialisierten Running-Retail verbinde ich fundiertes Produktwissen mit professioneller Beratung und Verkauf. 
+        Im spezialisierten Running-Retail verbinde ich fundiertes Produktwissen mit professioneller Beratung und Verkauf.
         Dabei geht es mir nicht um den schnellen Verkauf, sondern darum, Menschen nachhaltig in Bewegung zu bringen – schmerzfrei und mit Freude.
       </p>
       <p>
         Ich vertrete Marken, hinter denen ich zu 100% stehe, baue echte Beziehungen auf und sorge dafür, dass Produkte dort eingesetzt werden, wo sie einen
-        spürbaren Unterschied machen. 
+        spürbaren Unterschied machen.
       </p>
       <p>
-        Als aktiver Ausdauersportler im Running, Triathlon, und Radsport — kenne ich die
-        Anforderungen der Athleten und weiss, was sowohl im Wettkampf und als auch im Alltag wirklich zählt.
+        Als aktiver Ausdauersportler im Running, Triathlon und Radsport kenne ich die
+        Anforderungen der Athleten und weiss, was sowohl im Wettkampf als auch im Alltag wirklich zählt.
       </p>
     </div>
   </div>
 
-  <div>
-    <div class="about-highlights">
-      <div class="highlight-item">
-        <div class="highlight-bar"></div>
-        <div class="highlight-content">
-          <h4>Sales & Retail</h4>
-          <p>Retail Sales, B2B-Kundenbetreuung, Abschlussstärke — mit echtem Running-Background als Vertrauensbasis.</p>
-        </div>
+  <div class="panel-switcher animate-on-scroll">
+
+    <!-- Nav bar -->
+    <div class="panel-switcher-nav">
+      <div class="panel-label-group">
+        <span class="panel-current-label" id="panelLabel">Steckbrief</span>
+        <div class="panel-hint" id="panelHint">Soft Skills &nbsp;›</div>
       </div>
-      <div class="highlight-item">
-        <div class="highlight-bar"></div>
-        <div class="highlight-content">
-          <h4>Brand Marketing</h4>
-          <p>Social Media, Community Building, Sponsoring und Markenpositionierung im Sportbereich.</p>
+      <div class="panel-nav-controls">
+        <div class="panel-dots" id="panelDots">
+          <button class="panel-dot active" data-index="0" aria-label="Steckbrief"></button>
+          <button class="panel-dot" data-index="1" aria-label="Soft Skills"></button>
         </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-bar"></div>
-        <div class="highlight-content">
-          <h4>Produktexpertise</h4>
-          <p>Laufschuh-Reviews für internationale Brands, Athleten-Equipment, professionelle Laufanalyse.</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-bar"></div>
-        <div class="highlight-content">
-          <h4>Digital & Tools</h4>
-          <p>AI-Tools, CRM-Systeme, MS Office, Projektmanagement — technisch versiert in modernen Workflows.</p>
-        </div>
+        <button class="panel-arrow-btn" id="prevPanel" aria-label="Zurück">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="panel-arrow-btn" id="nextPanel" aria-label="Weiter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
-  </div>
+
+    <!-- Slides wrapper -->
+    <div class="panel-slides-wrap">
+      <div class="panel-slides" id="panelSlides">
+
+        <!-- SLIDE 1: Steckbrief -->
+        <div class="panel-slide">
+          <div class="steckbrief-card">
+            <div class="steckbrief-header">
+              <div class="steckbrief-header-label">Steckbrief · Persönliches Profil</div>
+            </div>
+            <div class="steckbrief-section-title">Persönliches</div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Geburtsdatum</span>
+              <span class="steckbrief-value">14. Juni 2002</span>
+            </div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Wohnort</span>
+              <span class="steckbrief-value">Neuchâtel, Schweiz</span>
+            </div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">2. Heimat</span>
+              <span class="steckbrief-value">Engadin</span>
+            </div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Status</span>
+              <span class="steckbrief-value">Verlobt &nbsp;·&nbsp; Heirat August 2026</span>
+            </div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Sprachen</span>
+              <div class="steckbrief-value">
+                <div class="steckbrief-badges">
+                  <span class="steckbrief-badge">Deutsch</span>
+                  <span class="steckbrief-badge">Englisch</span>
+                  <span class="steckbrief-badge">Französisch</span>
+                  <span class="steckbrief-badge">Italienisch</span>
+                </div>
+              </div>
+            </div>
+            <div class="steckbrief-section-title">Freizeit &amp; Hobbies</div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Sportarten</span>
+              <span class="steckbrief-value">Running · Triathlon · Radsport</span>
+            </div>
+            <div class="steckbrief-row">
+              <span class="steckbrief-label">Lieblingsmusik</span>
+              <span class="steckbrief-value">Klassisch. Handel und Bach.</span>
+            </div>
+            </div>
+            <div class="steckbrief-quote">
+              Ich möchte nichts anpreisen, was ich nicht selbst laufe, trage und lebe.
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: Soft Skills -->
+        <div class="panel-slide">
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <div class="highlight-bar"></div>
+              <div class="highlight-content">
+                <h4>Ausgeglichenheit</h4>
+                <p>Ob unter Druck, im hektischen Tagesgeschäft oder vor wichtigen Entscheidungen – ich bleibe ruhig, klar und handlungsfähig. Meine Balance ist kein Zufall, der Glaube an Jesus Christus gibt mir die Kraft.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-bar"></div>
+              <div class="highlight-content">
+                <h4>Belastbarkeit</h4>
+                <p>Lange Tage, anspruchsvolle Kunden, enge Deadlines – ich halte durch, bis das Ziel erreicht ist. Der Sport hat mich gelehrt, was es bedeutet, weiterzumachen, wenn es schwierig wird.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-bar"></div>
+              <div class="highlight-content">
+                <h4>Einsatzbereitschaft</h4>
+                <p>Das Minimum reicht mir nicht. Ich investiere die zusätzliche Energie, wenn es darauf ankommt – im Store, in Projektarbeiten oder auf der Rennstrecke. Die Extra-Meile ist für mich selbstverständlich.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-bar"></div>
+              <div class="highlight-content">
+                <h4>Vielseitigkeit</h4>
+                <p>Sales, Marketing, Content, Community, Logistik – ich bin es gewohnt, gleichzeitig an mehreren Fronten zu arbeiten, den Überblick zu behalten und trotzdem in die Tiefe zu gehen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /panel-slides -->
+    </div><!-- /panel-slides-wrap -->
+
+  </div><!-- /panel-switcher -->
 </section>
 
 <!-- SKILLS -->
@@ -1861,7 +2156,7 @@ footer {
       <div class="project-org">SOL-ID Athletes World AG</div>
       <p class="project-desc">
         Mithilfe beim Aufbau und Betreuung eines RunClubs. Gelegentliche Leitung von Trainings.
-        Regelmässige mithilfe bei kleineren bis mittelgrossen Events: Lebkuchenlauf, Communitiy-Runs bis zu 200 Teilnehmer: innen. 
+        Regelmässige mithilfe bei kleineren bis mittelgrossen Events: Lebkuchenlauf, Community-Runs bis zu 200 Teilnehmer: innen. 
 
       </p>
       <div class="project-tags">
@@ -1884,7 +2179,7 @@ footer {
         Projektleitung zur Entwicklung eines automatisierten Systems
         für Lieferantenimporte. Effizienzsteigerung der gesamten
         Warenabwicklung um über 50 % — von der Bestellbestätigung
-        bis zum Odoo-Import und Verkauf auf der Website. 
+        bis zum Odoo-Import und Verkauf auf der Website.
       </p>
       <div class="project-tags">
         <span>Projektmanagement</span>
@@ -1892,17 +2187,12 @@ footer {
         <span>AI-Tools</span>
         <span>Retail</span>
       </div>
-      <a href="#" class="project-pdf-btn project-pdf-placeholder" title="PDF folgt">
+      <a href="https://rafael-schober.github.io/rafael-schober/pdfs/Procurement-Example.xlsx" class="project-pdf-btn" target="_blank" title="Beispiel ansehen">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        PDF folgt
+        Beispiel ansehen
       </a>
     </div>
 
-      <a href="#" class="project-pdf-btn project-pdf-placeholder" title="PDF folgt">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        PDF folgt
-      </a>
-    </div>
 
   </div>
 </section>
@@ -2156,6 +2446,34 @@ if (rect.top < window.innerHeight && rect.bottom > 0) {
   window.addEventListener('scroll', checkVisible, { passive: true });
   setTimeout(checkVisible, 300);
   setTimeout(checkVisible, 800);
+
+  // ── PANEL SWITCHER ──
+  (function() {
+    const slides   = document.getElementById('panelSlides');
+    const dots     = document.querySelectorAll('#panelDots .panel-dot');
+    const label    = document.getElementById('panelLabel');
+    const btnNext  = document.getElementById('nextPanel');
+    const btnPrev  = document.getElementById('prevPanel');
+    const labels   = ['Steckbrief', 'Soft Skills'];
+    const hint     = document.getElementById('panelHint');
+    let current    = 0;
+    const total    = labels.length;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      label.textContent = labels[current];
+      var next = labels[(current + 1) % total];
+      hint.textContent = next + ' \u203a';
+    }
+
+    btnNext.addEventListener('click', function() { goTo(current + 1); });
+    btnPrev.addEventListener('click', function() { goTo(current - 1); });
+    dots.forEach(function(d) {
+      d.addEventListener('click', function() { goTo(parseInt(d.dataset.index)); });
+    });
+  })();
 
 });
 </script>
